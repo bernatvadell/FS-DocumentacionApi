@@ -163,8 +163,12 @@ class SwaggerDocs extends Controller
         $spec['tags'] = $newSpec['tags'] ?? [];
         
         // Actualizamos la URL del servidor con la actual
+        $scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off')
+            || (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https')
+            || (isset($_SERVER['SERVER_PORT']) && (int)$_SERVER['SERVER_PORT'] === 443)
+            ? 'https' : 'http';
         $spec['servers'] = [[
-            'url' => rtrim($this->request->protocol() . '://' . $this->request->host() . $this->request->getBasePath(), '/'),
+            'url' => rtrim($scheme . '://' . $this->request->host() . FS_ROUTE, '/'),
             'description' => 'API Server'
         ]];
 
