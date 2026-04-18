@@ -53,8 +53,8 @@ class SwaggerDocs extends Controller
                 <input type="text" id="api-search" placeholder="Filtrar el schema por cualquier texto (URL, descripción, método...)" />
             </div>
             <div id="swagger-ui"></div>
-            <link rel="stylesheet" href="' . FS_ROUTE . '/Plugins/Swagger/Assets/css/swagger-ui.min.css">
-            <script src="' . FS_ROUTE . '/Plugins/Swagger/Assets/js/swagger-ui-bundle.min.js"></script>
+            <link rel="stylesheet" href="' . FS_ROUTE . '/Plugins/DocumentacionAPI/Assets/css/swagger-ui.min.css">
+            <script src="' . FS_ROUTE . '/Plugins/DocumentacionAPI/Assets/js/swagger-ui-bundle.min.js"></script>
             <style>
                 body { margin: 0; padding: 0px; }
                 .swagger-ui .topbar { display: none }
