@@ -154,7 +154,7 @@ class SwaggerDocs extends Controller
         }
         
         // Generamos la documentación dinámica
-        $generator = new \FacturaScripts\Plugins\Swagger\Lib\APIDocGenerator();
+        $generator = new \FacturaScripts\Plugins\DocumentacionAPI\Lib\APIDocGenerator();
         $newSpec = $generator->generate();
         
         // Fusionamos con el spec existente
@@ -164,7 +164,7 @@ class SwaggerDocs extends Controller
         
         // Actualizamos la URL del servidor con la actual
         $spec['servers'] = [[
-            'url' => rtrim($this->request->getSchemeAndHttpHost() . $this->request->getBasePath(), '/'),
+            'url' => rtrim($this->request->protocol() . '://' . $this->request->host() . $this->request->getBasePath(), '/'),
             'description' => 'API Server'
         ]];
 
